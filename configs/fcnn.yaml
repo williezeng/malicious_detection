@@ -1,0 +1,29 @@
+Train:
+  batch_size: 256 #128
+  learning_rate: 0.001 #0.0001
+  reg: 0.00001
+  epochs: 200
+  steps: [120, 200] # epochs where the learning_rate will be reduced
+  warmup: 0
+  momentum: 0.95
+  class_weights: [1.0, 1.0] # weight the loss function [Clean, Malicious]
+  optimizer: SGD # [SGD, Adam]
+
+network:
+  model: FCNN # FCNN
+
+data:
+  clean: 20000 # number of clean samples to load
+  unmodified: 5000 # number of unmodified, original source malicious samples
+  insert: 5000 # number of generated malicious samples using the insert method
+  obfuscated: 5000 # number of obfuscated malicious samples using Invoke-Obfuscation
+  bypass: 5000 # number of obfuscated AMSI bypass techniques
+  train: 0.8 # fraction of the dataset to use for training
+  validation: 0.1 # fraction of the dataset to use for validation
+  test: 0.1 # fraction of the dataset to use for testing
+  imbalance: regular # regular or imbalance
+  save_best: True # you want to save the model
+  max_filesize: 65536 # maximum file size in bytes [65536, 131072, 524288] = [64KiB, 128KiB, 512KiB]
+
+loss:
+  loss_type: CE # CE or Focal

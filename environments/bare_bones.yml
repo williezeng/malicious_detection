@@ -1,0 +1,9 @@
+name: deep
+channels:
+  - defaults
+dependencies:
+  - python==3.9.4
+  - pyyaml
+  - pytorch
+  - torchvision
+prefix: /home/anaconda3/envs/deep
